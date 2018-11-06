@@ -71,9 +71,11 @@ string Player::showHand() const {
     vector<Card> const_iterator iter;
 
     string handList;
+    string spaceComma = ", ";
 
     for(iter = myHand.begin(); iter < myHand.end(); iter++){
         handList+= myHand[iter].toString();
+        handList = handList + spaceComma;
 
 
     }
@@ -88,8 +90,10 @@ string Player ::showBooks() const {
 
     vector<Card> const_iterator iter;
     string bookList;
+    string spaceComma = ", ";
     for(iter = myBook.begin(); iter < myBook.end(); iter++){
-        handList+= myBook[iter].toString();
+        bookList+= myBook[iter].toString();
+        bookList = bookList + spaceComma;
 
     }
 

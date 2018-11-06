@@ -56,10 +56,11 @@ Card Deck::dealCard(){
 
     if(myCards.size() == 0)         //deck is empty, no cards left to deal
         return;
-    else
-
-        return myCards[myIndex];
-
+    else {
+        Card r = myCards[myIndex];
+        myIndex++;
+        return r;
+    }
 
 
 }

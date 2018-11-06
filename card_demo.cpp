@@ -31,17 +31,29 @@ int main( )
     cout << p1.getName() <<" has : " << p1.showHand() << endl;
     cout << p2.getName() <<" has : " << p2.showHand() << endl;
 
-    cout << p1.getName() <<" asks - do you have " << p1.chooseCardFromHand() << "?" << endl;
+    cout << p1.getName() <<" asks - do you have " << p1.chooseCardFromHand().rankString(cardCalled.getRank()) << "?" << endl;
 
-    string response;
+    string response = "";
+    Card cardCalled = p1.chooseCardFromHand();
 
-    if(p2.cardInHand(p1.chooseCardFromHand())){
-        response = p1.chooseCardFromHand().toString();
+    while(p2.cardInHand(p1.chooseCardFromHand())){
+        response = "Yes. I have a "+p1.chooseCardFromHand().rankString(cardCalled.getRank());
+        cout << p2.getName() <<" says - " << response << endl;
+        p1.addCard(cardCalled);
+        p1.bookCards(, p1.chooseCardFromHand());        //book the two cards
+        cout << p1.getName() << "books the" << cardCalled.rankString(cardCalled.getRank());
+        
+
+
     }
     else
         reponse = "Go Fish";
 
     cout << p2.getName() <<" says - " << response << endl;
+
+    p2.addCard(p1.chooseCardFromHand());
+    //p2.bookCards();
+
     
     return EXIT_SUCCESS;  
 }

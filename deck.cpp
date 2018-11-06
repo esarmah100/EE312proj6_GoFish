@@ -46,7 +46,24 @@ void Deck::shuffle(){
     }
 }
 
+
+
 Card Deck::dealCard(){
+
+    if(myCards.size() == 0)         //deck is empty, no cards left to deal
+        return;
+    else
+
+        return myCards[myIndex];
+
+
+
+}
+
+int Deck::size() const {
+
+    for(int i = 0; i)
+
 
 }
 

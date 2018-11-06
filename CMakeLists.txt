@@ -14,4 +14,4 @@ add_executable(EE312proj6_GoFish
         deck.cpp
 >>>>>>> 9d78aaf883eb5d6b4bfab4b980fbe557b45027eb
         deck.h
-        player.h)
+        player.h player.cpp)

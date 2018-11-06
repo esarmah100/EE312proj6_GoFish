@@ -72,12 +72,16 @@ string Card ::rankString(int r) const {
 bool Card ::operator==(const Card &rhs) const {
     if(mySuit == rhs.mySuit && myRank == rhs.myRank)
         return true;
+    else
+        return false;
 
 }
 
 bool Card ::operator!=(const Card &rhs) const {
     if(mySuit != rhs.mySuit || myRank != rhs.myRank)
         return true;
+    else
+        return false;
 
 
 

@@ -8,20 +8,24 @@
 using namespace std;
 
 Deck ::Deck() {
-    for(int i = 1; i < 5; i++){
+    int count = 0;
+    for(int i = 0; i < 4; i++){
         for (int j = 0; j < 13; j++){
+            if (i == 0){
+                myCards[count] = Card(j+1, Card::hearts);
+            }
             if (i == 1){
-                myCards[i*j] = Card(i+1, Card::hearts);
+                myCards[count] = Card(j+1, Card::clubs);
             }
             if (i == 2){
-                myCards[i*j] = Card(i+1, Card::clubs);
+                myCards[count] = Card(j+1, Card::diamonds);
             }
             if (i == 3){
-                myCards[i*j] = Card(i+1, Card::diamonds);
+                myCards[count] = Card(j+1, Card::spades);
             }
-            if (i == 4){
-                myCards[i*j] = Card(i+1, Card::spades);
-            }
+
+            count++;
+            myIndex = 0;
         }
     }
 }

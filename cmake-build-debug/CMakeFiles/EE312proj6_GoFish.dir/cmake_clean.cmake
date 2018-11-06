@@ -2,6 +2,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/EE312proj6_GoFish.dir/card.cpp.obj"
   "CMakeFiles/EE312proj6_GoFish.dir/card_demo.cpp.obj"
   "CMakeFiles/EE312proj6_GoFish.dir/deck.cpp.obj"
+  "CMakeFiles/EE312proj6_GoFish.dir/player.cpp.obj"
   "EE312proj6_GoFish.pdb"
   "EE312proj6_GoFish.exe"
   "EE312proj6_GoFish.exe.manifest"

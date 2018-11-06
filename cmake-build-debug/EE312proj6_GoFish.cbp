@@ -99,6 +99,9 @@
 		<Unit filename="C:/Users/esarmah100/EE312/GitHub/EE312proj6_GoFish/deck.h">
 			<Option target="EE312proj6_GoFish"/>
 		</Unit>
+		<Unit filename="C:/Users/esarmah100/EE312/GitHub/EE312proj6_GoFish/player.cpp">
+			<Option target="EE312proj6_GoFish"/>
+		</Unit>
 		<Unit filename="C:/Users/esarmah100/EE312/GitHub/EE312proj6_GoFish/player.h">
 			<Option target="EE312proj6_GoFish"/>
 		</Unit>

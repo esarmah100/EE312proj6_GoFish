@@ -30,6 +30,18 @@ int main( )
        
     cout << p1.getName() <<" has : " << p1.showHand() << endl;
     cout << p2.getName() <<" has : " << p2.showHand() << endl;
+
+    cout << p1.getName() <<" asks - do you have " << p1.chooseCardFromHand() << "?" << endl;
+
+    string response;
+
+    if(p2.cardInHand(p1.chooseCardFromHand())){
+        response = p1.chooseCardFromHand().toString();
+    }
+    else
+        reponse = "Go Fish";
+
+    cout << p2.getName() <<" says - " << response << endl;
     
     return EXIT_SUCCESS;  
 }

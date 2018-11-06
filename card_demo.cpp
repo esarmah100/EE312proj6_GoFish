@@ -31,28 +31,33 @@ int main( )
     cout << p1.getName() <<" has : " << p1.showHand() << endl;
     cout << p2.getName() <<" has : " << p2.showHand() << endl;
 
-    cout << p1.getName() <<" asks - do you have " << p1.chooseCardFromHand().rankString(cardCalled.getRank()) << "?" << endl;
-
-    string response = "";
     Card cardCalled = p1.chooseCardFromHand();
 
-    while(p2.cardInHand(p1.chooseCardFromHand())){
-        response = "Yes. I have a "+p1.chooseCardFromHand().rankString(cardCalled.getRank());
-        cout << p2.getName() <<" says - " << response << endl;
-        p1.addCard(cardCalled);
-        p1.bookCards(, p1.chooseCardFromHand());        //book the two cards
-        cout << p1.getName() << "books the" << cardCalled.rankString(cardCalled.getRank());
-        
+    cout << p1.getName() <<" asks - do you have " << cardCalled.rankString(cardCalled.getRank()) << "?" << endl;
 
+    string response = "";
+
+    while(p2.cardInHand(p1.chooseCardFromHand())){
+        response = "Yes. I have a "+cardCalled.rankString(cardCalled.getRank());
+        cout << p2.getName() <<" says - " << response << endl;
+        p2.removeCardFromHand(cardCalled);
+
+        p1.addCard(cardCalled);
+        p1.bookCards(cardCalled, cardCalled);        //book the two cards
+        p1.removeCardFromHand(cardCalled);              //remove the two cards from hand b/c they have been booked
+        p1.removeCardFromHand(cardCalled);
+
+        cout << p1.getName() << "books the" << cardCalled.rankString(cardCalled.getRank());
+
+        cardCalled = p1.chooseCardFromHand();
+        cout << p1.getName() <<" asks - do you have " << cardCalled.rankString(cardCalled.getRank()) << "?" << endl;
 
     }
-    else
+    if(p2.cardInHand(p1.chooseCardFromHand()) == false)
         reponse = "Go Fish";
 
     cout << p2.getName() <<" says - " << response << endl;
 
-    p2.addCard(p1.chooseCardFromHand());
-    //p2.bookCards();
 
     
     return EXIT_SUCCESS;  

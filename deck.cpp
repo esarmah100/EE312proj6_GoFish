@@ -54,8 +54,10 @@ void Deck::shuffle(){
 
 Card Deck::dealCard(){
 
-    if(myCards.size() == 0)         //deck is empty, no cards left to deal
-        return;
+    if(size() == 0) {       //deck is empty, no cards left to deal
+        Card sp0(0, spades);
+        return sp0;
+    }
     else {
         Card r = myCards[myIndex];
         myIndex++;
@@ -67,7 +69,12 @@ Card Deck::dealCard(){
 
 int Deck::size() const {
 
-    for(int i = 0; i)
+    int counter = 0;
+    for(int i = myIndex; i <SIZE; i++){
+       counter ++;
+    }
+
+    return counter;
 
 
 }

@@ -32,16 +32,16 @@ int Card ::getRank() const {
 string Card ::suitString(Suit s) const {
     string suit;
     if(s == spades){
-        suit = s;
+        suit = "s";
     }
     if(s == hearts){
-        suit = h;
+        suit = "h";
     }
     if(s == diamonds){
-        suit = d;
+        suit = "d";
     }
     if(s == clubs){
-        suit = c;
+        suit = "c";
     }
     return suit;
 
@@ -54,16 +54,16 @@ string Card ::rankString(int r) const {
         rank = (char)r;
     }
     if(r == 1){
-        rank = A;
+        rank = "A";
     }
     if(r == 11){
-        rank = J;
+        rank = "J";
     }
     if(r == 12){
-        rank = Q;
+        rank = "Q";
     }
     if(r == 13){
-        rank = K;
+        rank = "K";
     }
     return rank;
 

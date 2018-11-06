@@ -2,6 +2,7 @@
 
 #include "card.h"
 #include <string>
+#include <sstream>
 
 using namespace std;
 
@@ -50,8 +51,11 @@ string Card ::suitString(Suit s) const {
 
 string Card ::rankString(int r) const {
     string rank;
+    stringstream ss;
+
     if(r >= 2 && r<=10){
-        rank = (char)r;
+        ss << r;
+        rank = ss.str();
     }
     if(r == 1){
         rank = "A";

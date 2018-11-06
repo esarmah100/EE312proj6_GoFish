@@ -3,6 +3,7 @@
 //
 
 #include "player.h"
+#include <iterator>
 
 #include <string>
 
@@ -39,10 +40,10 @@ Card Player::chooseCardFromHand() const {
 
 bool Player::cardInHand(Card c) const {
 
-    vector<Card> const_iterator iter;
+    vector<Card>::const_iterator iter;
 
     for(iter = myHand.begin(); iter < myHand.end(); iter++){
-        if(myHand[iter] == c)
+        if(*iter == c)
             return true;
     }
     return false;
@@ -51,14 +52,14 @@ bool Player::cardInHand(Card c) const {
 
 Card Player::removeCardFromHand(Card c) {
 
-    vector<Card> iterator iter;
+    vector<Card>::iterator iter;
 
     int n;
-    for(iter = myHand.begin(); myHand[iter] != c; iter++){
+    for(iter = myHand.begin(); *iter != c; iter++){
         n++;
     }
     n++;
-    myHand.erase(myHand.begin + n);         //will erase the element that is card c
+    myHand.erase(myHand.begin() + n);         //will erase the element that is card c
 
     return c;
 
@@ -68,13 +69,13 @@ Card Player::removeCardFromHand(Card c) {
 
 string Player::showHand() const {
 
-    vector<Card> const_iterator iter;
+    vector<Card>::const_iterator iter;
 
     string handList;
     string spaceComma = ", ";
 
     for(iter = myHand.begin(); iter < myHand.end(); iter++){
-        handList+= myHand[iter].toString();
+        handList+= (*iter).toString();
         handList = handList + spaceComma;
 
 
@@ -88,11 +89,11 @@ string Player::showHand() const {
 
 string Player ::showBooks() const {
 
-    vector<Card> const_iterator iter;
+    vector<Card>::const_iterator iter;
     string bookList;
     string spaceComma = ", ";
     for(iter = myBook.begin(); iter < myBook.end(); iter++){
-        bookList+= myBook[iter].toString();
+        bookList+= (*iter).toString();
         bookList = bookList + spaceComma;
 
     }
@@ -105,7 +106,7 @@ string Player ::showBooks() const {
 
 int Player::getBookSize() const {
 
-    vector<Card> const_iterator iter;
+    vector<Card>::const_iterator iter;
 
     int bookSize;
 
@@ -121,7 +122,7 @@ int Player::getBookSize() const {
 
 int Player::getHandSize() const {
 
-    vector<Card> const_iterator iter;
+    vector<Card>::const_iterator iter;
 
     int handSize;
 

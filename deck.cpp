@@ -37,16 +37,16 @@ void Deck::shuffle(){
     Card temp;
 
     for (int i = 0; i < 104; i++){
-        int randIndex = rand() % 52;
-        int randIndex2 = rand() % 52;
+        int randIndex = rand() % 51;
+        int randIndex2 = rand() % 51;
         
         if (randIndex == randIndex2){
-            randIndex2 = rand() % 52;
+            randIndex2 = rand() % 51;
         }
 
         temp =  myCards[randIndex];
         myCards[randIndex] = myCards[randIndex2];
-        myCards[randIndex] = temp;
+        myCards[randIndex2] = temp;
     }
 }
 
@@ -55,7 +55,7 @@ void Deck::shuffle(){
 Card Deck::dealCard(){
 
     if(size() == 0) {       //deck is empty, no cards left to deal
-        Card sp0(0, spades);
+        Card sp0(0, Card::spades);
         return sp0;
     }
     else {

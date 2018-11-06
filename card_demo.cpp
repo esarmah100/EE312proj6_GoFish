@@ -40,12 +40,12 @@ int main( )
     while(p2.cardInHand(p1.chooseCardFromHand())){
         response = "Yes. I have a "+cardCalled.rankString(cardCalled.getRank());
         cout << p2.getName() <<" says - " << response << endl;
-        p2.removeCardFromHand(cardCalled);
 
-        p1.addCard(cardCalled);
-        p1.bookCards(cardCalled, cardCalled);        //book the two cards
+        p1.addCard(p2.removeCardFromHand(cardCalled));
+
+        p1.bookCards(cardCalled,p2.removeCardFromHand(cardCalled));        //book the two cards
         p1.removeCardFromHand(cardCalled);              //remove the two cards from hand b/c they have been booked
-        p1.removeCardFromHand(cardCalled);
+        p1.removeCardFromHand(p2.removeCardFromHand(cardCalled));
 
         cout << p1.getName() << "books the" << cardCalled.rankString(cardCalled.getRank());
 
@@ -54,7 +54,7 @@ int main( )
 
     }
     if(p2.cardInHand(p1.chooseCardFromHand()) == false)
-        reponse = "Go Fish";
+        response = "Go Fish";
 
     cout << p2.getName() <<" says - " << response << endl;
 

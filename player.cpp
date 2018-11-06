@@ -43,7 +43,7 @@ bool Player::cardInHand(Card c) const {
     vector<Card>::const_iterator iter;
 
     for(iter = myHand.begin(); iter < myHand.end(); iter++){
-        if(*iter == c)
+        if((*iter).getRank() == c.getRank())
             return true;
     }
     return false;
@@ -54,14 +54,15 @@ Card Player::removeCardFromHand(Card c) {
 
     vector<Card>::iterator iter;
 
+
     int n;
-    for(iter = myHand.begin(); *iter != c; iter++){
+    for(iter = myHand.begin(); (*iter).getRank() != c.getRank(); iter++){
         n++;
     }
-    n++;
+    Card toBeReturned = *(myHand.begin() + n);
     myHand.erase(myHand.begin() + n);         //will erase the element that is card c
 
-    return c;
+    return toBeReturned;
 
 
 

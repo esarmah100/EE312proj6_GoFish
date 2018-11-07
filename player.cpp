@@ -137,14 +137,11 @@ int Player::getHandSize() const {
 }
 
 bool Player ::checkHandForPair(Card &c1, Card &c2) {
-    vector<Card>::const_iterator iter;
 
-    for(iter = myHand.begin(); iter < myHand.end(); iter ++){
         if(c1.getRank() == c2.getRank())
             return true;
-    }
-
-    return false;
+        else
+            return false;
 
 }
 

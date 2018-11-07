@@ -13,8 +13,6 @@ using namespace std;
 void dealHand(Deck &d, Player &p, int numCards);
 
 
-
-
 int main( )
 {
     int numCards = 5;
@@ -72,6 +70,20 @@ int main( )
                 response = "Go Fish";
                 cout << p2.getName() << " says - " << response << endl;
             }
+
+            vector<Card>::const_iterator iter;
+
+            for(iter = 0; iter < p1.getHandSize(); iter++){
+                if((p1.checkHandForPair(iter, (iter+1))){
+                    p1.bookCards(*(iter), *(iter+1));
+                    p1.removeCardFromHand(*iter);
+                    p1.removeCardFromHand(*(iter+1));
+                }
+
+            }
+
+
+
         }
 
         /* Player 2 */
@@ -111,6 +123,21 @@ int main( )
                 response = "Go Fish";
                 cout << p1.getName() << " says - " << response << endl;
             }
+
+            vector<Card>::const_iterator iter;
+
+            for(iter = 0; iter < p2.getHandSize(); iter++){
+                if((p2.checkHandForPair(iter, (iter+1))){
+                    p2.bookCards(*(iter), *(iter+1));
+                    p2.removeCardFromHand(*iter);
+                    p2.removeCardFromHand(*(iter+1));
+                }
+
+            }
+
+            
+
+
         }
         Card drawnCard = d.dealCard();
 
@@ -125,8 +152,8 @@ int main( )
             cout << endl;
         }
 
-        cout << p1.getName() << "'s book has " << p2.showBooks() << endl; //displays what the player1's book contains
-        cout << p2.getName() << "'s book has " << p1.showBooks() << endl; //displays what the player1's book contains
+        cout << p1.getName() << "'s book has " << p1.showBooks() << endl; //displays what the player1's book contains
+        cout << p2.getName() << "'s book has " << p2.showBooks() << endl; //displays what the player2's book contains
         cout << endl;
 
         if (playerFlag == 1)

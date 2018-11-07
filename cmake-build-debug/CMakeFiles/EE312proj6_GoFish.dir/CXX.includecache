@@ -12,21 +12,13 @@ iostream
 string
 -
 
-C:/Users/esarmah100/EE312/GitHub/EE312proj6_GoFish/card_demo.cpp
-iostream
--
-cstdlib
--
-card.h
-C:/Users/esarmah100/EE312/GitHub/EE312proj6_GoFish/card.h
+C:/Users/esarmah100/EE312/GitHub/EE312proj6_GoFish/player.cpp
 player.h
 C:/Users/esarmah100/EE312/GitHub/EE312proj6_GoFish/player.h
-deck.h
-C:/Users/esarmah100/EE312/GitHub/EE312proj6_GoFish/deck.h
-
-C:/Users/esarmah100/EE312/GitHub/EE312proj6_GoFish/deck.h
-card.h
-C:/Users/esarmah100/EE312/GitHub/EE312proj6_GoFish/card.h
+iterator
+-
+string
+-
 
 C:/Users/esarmah100/EE312/GitHub/EE312proj6_GoFish/player.h
 iostream

@@ -73,7 +73,7 @@ int main( )
 
             Card c1;
             Card c2;
-            if(p1.checkHandForPair(&c1, &c2)){
+            if(p1.checkHandForPair(c1, c2)){
                 p1.bookCards(c1, c2);
                 p1.removeCardFromHand(c1);
                 p1.removeCardFromHand(c2);
@@ -124,7 +124,7 @@ int main( )
 
             Card c3;
             Card c4;
-            if(p2.checkHandForPair(&c3, &c4)){
+            if(p2.checkHandForPair(c3 , c4)){
                 p2.bookCards(c3, c4);
                 p2.removeCardFromHand(c3);
                 p2.removeCardFromHand(c4);

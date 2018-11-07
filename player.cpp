@@ -23,8 +23,8 @@ void Player::addCard(Card c) {
 
 void Player::bookCards(Card c1, Card c2) {
 
-    myHand.push_back(c1);
-    myHand.push_back(c2);
+    myBook.push_back(c1);
+    myBook.push_back(c2);
 
 
 }
@@ -56,7 +56,7 @@ Card Player::removeCardFromHand(Card c) {
 
 
     int n = 0;
-    for(iter = myHand.begin(); (*iter).getRank() != c.getRank(); iter++){
+    for(iter = myHand.begin(); iter->getRank() != c.getRank(); iter++){
         n++;
     }
     Card toBeReturned = *(myHand.begin() + n);

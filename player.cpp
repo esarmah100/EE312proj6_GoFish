@@ -55,11 +55,12 @@ Card Player::removeCardFromHand(Card c) {
     vector<Card>::iterator iter;
 
 
-    int n;
+    int n = 0;
     for(iter = myHand.begin(); (*iter).getRank() != c.getRank(); iter++){
         n++;
     }
     Card toBeReturned = *(myHand.begin() + n);
+
     myHand.erase(myHand.begin() + n);         //will erase the element that is card c
 
     return toBeReturned;
@@ -134,6 +135,19 @@ int Player::getHandSize() const {
 
 
 }
+
+bool Player ::checkHandForPair(Card &c1, Card &c2) {
+    vector<Card>::const_iterator iter;
+
+    for(iter = myHand.begin(); iter < myHand.end(); iter ++){
+        if(c1.getRank() == c2.getRank())
+            return true;
+    }
+
+    return false;
+
+}
+
 
 
 

@@ -138,10 +138,26 @@ int Player::getHandSize() const {
 
 bool Player ::checkHandForPair(Card &c1, Card &c2) {
 
-        if(c1.getRank() == c2.getRank())
+    vector<Card>::iterator iter;
+
+
+    for(iter = myHand.begin(); iter < myHand.end() -1; iter++){
+
+        if((*iter).getRank == (*(iter+1)).getRank){
+            c1 = (*iter);
+            c2 = *(iter+1);
+
+            p2.bookCards(*(iter), *(iter+1));
+            p2.removeCardFromHand(*iter);
+            p2.removeCardFromHand(*(iter+1));
             return true;
-        else
-            return false;
+
+        }
+
+
+    }
+    return false;
+
 
 }
 

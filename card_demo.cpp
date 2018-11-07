@@ -71,15 +71,12 @@ int main( )
                 cout << p2.getName() << " says - " << response << endl;
             }
 
-            vector<Card>::const_iterator iter;
-
-            for(iter = 0; iter < p1.getHandSize(); iter++){
-                if((p1.checkHandForPair(iter, (iter+1))){
-                    p1.bookCards(*(iter), *(iter+1));
-                    p1.removeCardFromHand(*iter);
-                    p1.removeCardFromHand(*(iter+1));
-                }
-
+            Card c1;
+            Card c2;
+            if(p1.checkHandForPair(&c1, &c2)){
+                p1.bookCards(c1, c2);
+                p1.removeCardFromHand(c1);
+                p1.removeCardFromHand(c2);
             }
 
 
@@ -124,18 +121,16 @@ int main( )
                 cout << p1.getName() << " says - " << response << endl;
             }
 
-            vector<Card>::const_iterator iter;
 
-            for(iter = 0; iter < p2.getHandSize(); iter++){
-                if((p2.checkHandForPair(iter, (iter+1))){
-                    p2.bookCards(*(iter), *(iter+1));
-                    p2.removeCardFromHand(*iter);
-                    p2.removeCardFromHand(*(iter+1));
-                }
-
+            Card c3;
+            Card c4;
+            if(p2.checkHandForPair(&c3, &c4)){
+                p2.bookCards(c3, c4);
+                p2.removeCardFromHand(c3);
+                p2.removeCardFromHand(c4);
             }
 
-            
+
 
 
         }

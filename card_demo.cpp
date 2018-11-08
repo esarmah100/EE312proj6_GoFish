@@ -18,6 +18,8 @@ int main( )
     int numCards = 7;
     int playerFlag = 1;
     int flagTemp;
+    int player1OutFlag = 0;
+    int player2OutFlag = 0;
     int gameFlag = 1;
     
     Player p1("Joe");
@@ -37,6 +39,7 @@ int main( )
         /*Player 1*/
         if (playerFlag == 1) {
 
+
             Card c1;
             Card c2;
             if(p1.checkHandForPair(c1, c2)){
@@ -45,41 +48,50 @@ int main( )
                 p1.removeCardFromHand(c2);
             }
 
+            if(p1.getHandSize() > 0) {
 
-            Card cardCalled = p1.chooseCardFromHand();
-            cout << p1.getName() << " asks - do you have " << cardCalled.rankString(cardCalled.getRank()) << "?"
-                 << endl;
+               Card cardCalled = p1.chooseCardFromHand();
+                cout << p1.getName() << " asks - do you have a " << cardCalled.rankString(cardCalled.getRank()) << "?"
+                     << endl;
 
-            string response = "";
 
-            while (p2.cardInHand(p1.chooseCardFromHand())) {
-                response = "Yes. I have a " + cardCalled.rankString(cardCalled.getRank());
-                cout << p2.getName() << " says - " << response << endl;
+                string response = "";
 
-                Card cardMatched = p2.removeCardFromHand(cardCalled);
+                while (p2.cardInHand(p1.chooseCardFromHand())) {
 
-                p1.addCard(cardMatched);
+                    response = "Yes. I have a " + cardCalled.rankString(cardCalled.getRank());
+                    cout << p2.getName() << " says - " << response << endl;
 
-               // cout << p1.getName() << " has : " << p1.showHand() << endl;   // shows the matched card transferred
-               // cout << p2.getName() << " has : " << p2.showHand() << endl;   // to the other player
+                    Card cardMatched = p2.removeCardFromHand(cardCalled);
 
-                p1.bookCards(cardCalled, cardMatched);        //book the two cards
-                p1.removeCardFromHand(cardCalled);              //remove the two cards from hand b/c they have been booked
-                p1.removeCardFromHand(cardMatched);
+                    p1.addCard(cardMatched);
 
-                cout << p1.getName() << " books the " << cardCalled.rankString(cardCalled.getRank()) << endl;
-                //cout << p1.getName() << "'s book has " << p1.showBooks() << endl; //displays what the player1's book contains
 
-                //cout << p1.getName() << " has : " << p1.showHand() << endl;  //shows the players' hands
-                //cout << p2.getName() << " has : " << p2.showHand() << endl;  //after hands have been booked
+                    p1.bookCards(cardCalled, cardMatched);        //book the two cards
+                    p1.removeCardFromHand(
+                            cardCalled);              //remove the two cards from hand b/c they have been booked
+                    p1.removeCardFromHand(cardMatched);
 
-                cardCalled = p1.chooseCardFromHand();
-                cout << p1.getName() << " asks - do you have " << cardCalled.rankString(cardCalled.getRank()) << "?" << endl;
+                    cout << p1.getName() << " books the " << cardCalled.rankString(cardCalled.getRank()) << endl;
+
+                    if(p1.getHandSize() > 0) {
+                        cardCalled = p1.chooseCardFromHand();
+                        cout << p1.getName() << " asks - do you have a " << cardCalled.rankString(cardCalled.getRank())
+                             << "?" << endl;
+                    }
+
+                }
+                if (p2.cardInHand(p1.chooseCardFromHand()) == false && p1.getHandSize() >0) {
+                    response = "Go Fish";
+                    cout << p2.getName() << " says - " << response << endl;
+                }
 
             }
-            if (p2.cardInHand(p1.chooseCardFromHand()) == false) {
-                response = "Go Fish";
-                cout << p2.getName() << " says - " << response << endl;
+
+
+
+            if(p1.getHandSize() == 0 && d.size() == 0){
+                player1OutFlag = 1;             //player 1 is now out
             }
 
 
@@ -99,40 +111,49 @@ int main( )
 
 
 
-            Card cardCalled = p2.chooseCardFromHand();
-            cout << p2.getName() << " asks - do you have " << cardCalled.rankString(cardCalled.getRank()) << "?"
-                 << endl;
+            if(p2.getHandSize() > 0) {
 
-            string response = "";
+                Card cardCalled = p2.chooseCardFromHand();
+                cout << p2.getName() << " asks - do you have a " << cardCalled.rankString(cardCalled.getRank()) << "?"
+                     << endl;
 
-            while (p1.cardInHand(p2.chooseCardFromHand())) {
-                response = "Yes. I have a " + cardCalled.rankString(cardCalled.getRank());
-                cout << p1.getName() << " says - " << response << endl;
+                string response = "";
 
-                Card cardMatched = p1.removeCardFromHand(cardCalled);
+                while (p1.cardInHand(p2.chooseCardFromHand())) {
 
-                p2.addCard(cardMatched);
+                    response = "Yes. I have a " + cardCalled.rankString(cardCalled.getRank());
+                    cout << p1.getName() << " says - " << response << endl;
 
-                // cout << p1.getName() << " has : " << p1.showHand() << endl;   // shows the matched card transferred
-                // cout << p2.getName() << " has : " << p2.showHand() << endl;   // to the other player
+                    Card cardMatched = p1.removeCardFromHand(cardCalled);
 
-                p2.bookCards(cardCalled, cardMatched);        //book the two cards
-                p2.removeCardFromHand(cardCalled);              //remove the two cards from hand b/c they have been booked
-                p2.removeCardFromHand(cardMatched);
+                    p2.addCard(cardMatched);
 
-                cout << p2.getName() << " books the " << cardCalled.rankString(cardCalled.getRank()) << endl;
-                //cout << p2.getName() << "'s book has " << p1.showBooks() << endl; //displays what the player1's book contains
 
-                //cout << p1.getName() << " has : " << p1.showHand() << endl;  //shows the players' hands
-                //cout << p2.getName() << " has : " << p2.showHand() << endl;  //after hands have been booked
+                    p2.bookCards(cardCalled, cardMatched);        //book the two cards
+                    p2.removeCardFromHand(
+                            cardCalled);              //remove the two cards from hand b/c they have been booked
+                    p2.removeCardFromHand(cardMatched);
 
-                cardCalled = p2.chooseCardFromHand();
-                cout << p2.getName() << " asks - do you have " << cardCalled.rankString(cardCalled.getRank()) << "?" << endl;
+                    cout << p2.getName() << " books the " << cardCalled.rankString(cardCalled.getRank()) << endl;
+
+
+                    if(p2.getHandSize() > 0) {
+                        cardCalled = p2.chooseCardFromHand();
+                        cout << p2.getName() << " asks - do you have " << cardCalled.rankString(cardCalled.getRank())
+                             << "?"
+                             << endl;
+                    }
+
+                }
+                if (p1.cardInHand(p2.chooseCardFromHand()) == false && p2.getHandSize() >0) {
+                    response = "Go Fish";
+                    cout << p1.getName() << " says - " << response << endl;
+                }
 
             }
-            if (p1.cardInHand(p2.chooseCardFromHand()) == false) {
-                response = "Go Fish";
-                cout << p1.getName() << " says - " << response << endl;
+
+            if(p2.getHandSize() == 0 && d.size() == 0){
+                player2OutFlag = 1;             //player 2 is now out
             }
 
 
@@ -160,13 +181,19 @@ int main( )
         cout << p1.getName() << "'s book: " << p1.showBooks() << endl; //displays what the player1's book contains
         cout << p2.getName() << "'s book: " << p2.showBooks() << endl; //displays what the player2's book contains
         cout << endl;
-        //cout << p1.showHand() << endl;
-        //cout << p2.showHand() << endl;
+        cout << p1.getName() <<"'s hand: " << p1.showHand() << endl; //debugging purposes
+        cout << p2.getName() <<"'s hand: " << p2.showHand() << endl; // debugging purposes
+        cout << endl;
 
-        if (playerFlag == 1)
+        if (playerFlag == 1 && player2OutFlag == 0)
             flagTemp = 2;
-        if(playerFlag == 2)
+        if(playerFlag == 1 && player2OutFlag == 1)
+            flagTemp = 1;       //player 2 is out
+
+        if(playerFlag == 2 && player1OutFlag == 0)
             flagTemp = 1;
+        if(playerFlag == 2 && player1OutFlag == 1)
+            flagTemp = 2;
 
         playerFlag = flagTemp;
 

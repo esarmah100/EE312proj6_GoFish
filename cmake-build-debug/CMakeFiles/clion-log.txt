@@ -1,4 +1,4 @@
-"C:\Program Files\JetBrains\CLion 2018.2.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" C:\Users\esarmah100\EE312\GitHub\EE312proj6_GoFish
+"C:\Program Files\JetBrains\CLion 2018.2.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" "C:\Users\Devina Parihar\Documents\GitHub\EE312proj6_GoFish"
 -- Configuring done
 -- Generating done
--- Build files have been written to: C:/Users/esarmah100/EE312/GitHub/EE312proj6_GoFish/cmake-build-debug
+-- Build files have been written to: C:/Users/Devina Parihar/Documents/GitHub/EE312proj6_GoFish/cmake-build-debug

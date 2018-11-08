@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/esarmah100/EE312/GitHub/EE312proj6_GoFish
+# Install script for directory: C:/Users/Devina Parihar/Documents/GitHub/EE312proj6_GoFish
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/esarmah100/EE312/GitHub/EE312proj6_GoFish/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/Devina Parihar/Documents/GitHub/EE312proj6_GoFish/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

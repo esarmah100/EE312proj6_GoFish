@@ -110,7 +110,7 @@ int Player::getBookSize() const {
 
     vector<Card>::const_iterator iter;
 
-    int bookSize;
+    int bookSize = 0;
 
     for(iter = myBook.begin(); iter < myBook.end(); iter++){
         bookSize++;
@@ -126,7 +126,7 @@ int Player::getHandSize() const {
 
     vector<Card>::const_iterator iter;
 
-    int handSize;
+    int handSize = 0;
 
     for(iter = myHand.begin(); iter < myHand.end(); iter++){
         handSize++;
